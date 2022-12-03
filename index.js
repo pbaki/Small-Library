@@ -1,0 +1,85 @@
+let myLibrary = [];
+
+function Book(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+    this.info = function(){
+        return `${title} by ${author}, ${pages} pages, ${read} yet`;
+    }
+}
+
+//object test
+//const theHobbit = new Book("Hobbit", "J.R.R. Tolkien", "295", "not read");
+//console.log(theHobbit);
+//console.log(theHobbit.info());
+
+
+function loopThroughLibrary(){
+    for (object of myLibrary){
+        console.log(object);
+    }
+}
+
+
+
+
+//changing what submit does in HTML (by id)
+    const submit = document.getElementById("new-book");
+
+    submit.addEventListener("click", addBookToLibrary);
+
+function addBookToLibrary(event){
+    const title1 = document.getElementById("title").value;
+    const author1 = document.getElementById("author").value;
+    const pages1 = document.getElementById("pages").value;
+    const read1 = document.getElementById("read").value;
+
+    //Getting card container and creating DOM for object
+    const cardContainer = document.getElementById("card-container");
+    const card = document.createElement("div");
+    card.classList.add("card" + myLibrary.length);
+
+
+    const titlep = document.createElement('p');
+    titlep.innerHTML = "Title: " + title1;
+    const authorp = document.createElement('p');
+    authorp.innerHTML = "Author: " + author1;
+    const pagesp = document.createElement('p');
+    pagesp.innerHTML = "Pages: " + pages1;
+    const readp = document.createElement('p');
+    readp.innerHTML = "Read: " + read1;
+
+    //delete card
+    const deleteButton = document.createElement("button");
+    deleteButton.innerHTML = "Delete";
+    deleteButton.addEventListener("click", function(){return cardContainer.removeChild(card)});
+
+    //changing read value button
+    const changeRead = document.createElement("button");
+    changeRead.innerHTML = "Change";
+    changeRead.addEventListener("click", function(){
+        const status = prompt("What status of read?");
+        return readp.innerHTML = "Read: " + status;
+    })
+    
+    cardContainer.appendChild(card);
+    card.appendChild(deleteButton);
+    card.appendChild(changeRead);
+    card.appendChild(titlep);
+    card.appendChild(authorp);
+    card.appendChild(pagesp);
+    card.appendChild(readp);
+
+    //Initial validation and pushing object created by form to array
+    if (title1 == "" || author1 == "" || pages1 == "" || read1 == ""){
+        return "";
+    } else myLibrary.push(new Book(title1, author1, pages1, read1));
+
+    event.preventDefault();
+
+    console.log(myLibrary[myLibrary.length - 1].read);
+    console.log(myLibrary);
+//    loopThroughLibrary()
+}
