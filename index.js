@@ -35,6 +35,10 @@ function addBookToLibrary(event){
     const author1 = document.getElementById("author").value;
     const pages1 = document.getElementById("pages").value;
     const read1 = document.getElementById("read").value;
+    //Initial validation and pushing object created by form to array
+    if (title1 == "" || author1 == "" || pages1 == "" || read1 == ""){
+        return "";
+    } else myLibrary.push(new Book(title1, author1, pages1, read1));
 
     //Getting card container and creating DOM for object
     const cardContainer = document.getElementById("card-container");
@@ -50,6 +54,8 @@ function addBookToLibrary(event){
     pagesp.innerHTML = "Pages: " + pages1;
     const readp = document.createElement('p');
     readp.innerHTML = "Read: " + read1;
+    const infop = document.createElement('p');
+    infop.innerHTML = "Info: " + myLibrary[myLibrary.length - 1].info();
 
     //delete card
     const deleteButton = document.createElement("button");
@@ -71,11 +77,7 @@ function addBookToLibrary(event){
     card.appendChild(authorp);
     card.appendChild(pagesp);
     card.appendChild(readp);
-
-    //Initial validation and pushing object created by form to array
-    if (title1 == "" || author1 == "" || pages1 == "" || read1 == ""){
-        return "";
-    } else myLibrary.push(new Book(title1, author1, pages1, read1));
+    card.appendChild(infop);
 
     event.preventDefault();
 
