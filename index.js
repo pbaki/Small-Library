@@ -1,19 +1,35 @@
 let myLibrary = [];
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-    this.info = function(){
-        return `${title} by ${author}, ${pages} pages, ${read} yet`;
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     this.info = function(){
+//         return `${title} by ${author}, ${pages} pages, ${read} yet`;
+//     }
+// }
+
+let Book = class {
+    constructor(title, author, pages, read){
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read} yet`;
     }
 }
 
+
+
+
+
 //object test
-//const theHobbit = new Book("Hobbit", "J.R.R. Tolkien", "295", "not read");
-//console.log(theHobbit);
-//console.log(theHobbit.info());
+// const theHobbit = new Book("Hobbit", "J.R.R. Tolkien", "295", "not read");
+// console.log(theHobbit);
+// console.log(theHobbit.info());
 
 
 function loopThroughLibrary(){
