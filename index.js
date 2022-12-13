@@ -26,7 +26,7 @@ let Book = class {
 
 
 
-//object test
+// object test 
 // const theHobbit = new Book("Hobbit", "J.R.R. Tolkien", "295", "not read");
 // console.log(theHobbit);
 // console.log(theHobbit.info());
@@ -46,6 +46,7 @@ function loopThroughLibrary(){
 
     submit.addEventListener("click", addBookToLibrary);
 
+    
 function addBookToLibrary(event){
     const title1 = document.getElementById("title").value;
     const author1 = document.getElementById("author").value;
