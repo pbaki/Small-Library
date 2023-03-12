@@ -1,15 +1,5 @@
 let myLibrary = [];
 
-// function Book(title, author, pages, read) {
-//     this.title = title;
-//     this.author = author;
-//     this.pages = pages;
-//     this.read = read;
-//     this.info = function(){
-//         return `${title} by ${author}, ${pages} pages, ${read} yet`;
-//     }
-// }
-
 let Book = class {
     constructor(title, author, pages, read){
         this.title = title;
@@ -22,26 +12,18 @@ let Book = class {
     }
 }
 
+// Same as above
+// function Book(title, author, pages, read) {
+//     this.title = title;
+//     this.author = author;
+//     this.pages = pages;
+//     this.read = read;
+//     this.info = function(){
+//         return `${title} by ${author}, ${pages} pages, ${read} yet`;
+//     }
+// }
 
 
-
-
-// object test 
-// const theHobbit = new Book("Hobbit", "J.R.R. Tolkien", "295", "not read");
-// console.log(theHobbit);
-// console.log(theHobbit.info());
-
-
-function loopThroughLibrary(){
-    for (object of myLibrary){
-        console.log(object);
-    }
-}
-
-
-
-
-//changing what submit does in HTML (by id)
     const submit = document.getElementById("new-book");
 
     submit.addEventListener("click", addBookToLibrary);
@@ -52,6 +34,7 @@ function addBookToLibrary(event){
     const author1 = document.getElementById("author").value;
     const pages1 = document.getElementById("pages").value;
     const read1 = document.getElementById("read").value;
+
     //Initial validation and pushing object created by form to array
     if (title1 == "" || author1 == "" || pages1 == "" || read1 == ""){
         return "";
@@ -98,7 +81,4 @@ function addBookToLibrary(event){
 
     event.preventDefault();
 
-    console.log(myLibrary[myLibrary.length - 1].read);
-    console.log(myLibrary);
-//    loopThroughLibrary()
 }
