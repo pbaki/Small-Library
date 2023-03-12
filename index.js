@@ -83,13 +83,13 @@ function addBookToLibrary(event){
     })
     
     cardContainer.appendChild(card);
-    card.appendChild(deleteButton);
-    card.appendChild(changeRead);
     card.appendChild(titlep);
     card.appendChild(authorp);
     card.appendChild(pagesp);
     card.appendChild(readp);
     card.appendChild(infop);
+    card.appendChild(deleteButton);
+    card.appendChild(changeRead);
 
     event.preventDefault();
 
